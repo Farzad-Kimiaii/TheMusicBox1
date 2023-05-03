@@ -1,0 +1,431 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TheMusicBox</title>
+</head>
+<body>
+<style>
+  .dropbtn {
+    background-color: #4CAF50;
+    color: white;
+    width: 250px;
+    height: 50px;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+  }
+  
+  
+  
+  .dropdown {
+    position: relative;
+    display: inline-block;
+  }
+  
+  
+  .dropdown-content {
+    display: none;
+    position: absolute;
+    z-index: 1;
+  }
+  
+  
+  .dropdown-content button {
+    color: black;
+    padding: 9px 12px;
+    text-decoration: none;
+    min-width: 250px;
+    display: block;
+  }
+  
+
+  
+  
+  .dropdown:hover .dropdown-content {
+    display: block;
+  }
+  
+</style>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <div class="dropdown"> 
+    <button button class="dropbtn">Volume Settings</button>
+    <div class="dropdown-content">
+    <button onclick="Mute()" type="button">Set volume to 0</button>
+    <button onclick="setVolume10percent()" type="button">Set volume to 0.1</button>
+    <button onclick="setVolume20percent()" type="button">Set volume to 0.2</button>
+    <button onclick="setVolume30percent()" type="button">Set volume to 0.3</button>
+    <button onclick="setVolume40percent()" type="button">Set volume to 0.4</button>
+    <button onclick="setVolume50percent()" type="button">Set volume to 0.5</button>
+    <button onclick="setVolume60percent()" type="button">Set volume to 0.6</button>
+    <button onclick="setVolume70percent()" type="button">Set volume to 0.7</button>
+    <button onclick="setVolume80percent()" type="button">Set volume to 0.8</button>
+    <button onclick="setVolume90percent()" type="button">Set volume to 0.9</button>
+    <button onclick="setVolume100percent()" type="button">Set volume to 1.0</button>
+    <button onclick="getVolume()" type="button">Return volume</button>
+    </div>
+  </div>
+
+
+<div class="dropdown"> 
+  <button button class="dropbtn">Playback Settings: Slow/Default</button>
+  <div class="dropdown-content">
+    <button onclick="setPlaySpeed01()" type="button">Set playback speed to 0.1</button> 
+    <button onclick="setPlaySpeed02()" type="button">Set playback speed to 0.2</button>
+    <button onclick="setPlaySpeed03()" type="button">Set playback speed to 0.3</button> 
+    <button onclick="setPlaySpeed04()" type="button">Set playback speed to 0.4</button> 
+    <button onclick="setPlaySpeed05()" type="button">Set playback speed to 0.5</button> 
+    <button onclick="setPlaySpeed06()" type="button">Set playback speed to 0.6</button> 
+    <button onclick="setPlaySpeed07()" type="button">Set playback speed to 0.7</button> 
+    <button onclick="setPlaySpeed08()" type="button">Set playback speed to 0.8</button> 
+    <button onclick="setPlaySpeed09()" type="button">Set playback speed to 0.9</button>
+    <button onclick="setPlaySpeed10()" type="button">Set playback speed to 1</button>  
+  </div>
+</div>
+
+<div class="dropdown"> 
+  <button button class="dropbtn">Playback Settings: Hasten</button>
+  <div class="dropdown-content">
+    <button onclick="setPlaySpeed11()" type="button">Set playback speed to 1.1</button> 
+    <button onclick="setPlaySpeed12()" type="button">Set playback speed to 1.2</button>
+    <button onclick="setPlaySpeed13()" type="button">Set playback speed to 1.3</button>
+    <button onclick="setPlaySpeed14()" type="button">Set playback speed to 1.4</button>
+    <button onclick="setPlaySpeed15()" type="button">Set playback speed to 1.5</button>
+    <button onclick="setPlaySpeed16()" type="button">Set playback speed to 1.6</button>
+    <button onclick="setPlaySpeed17()" type="button">Set playback speed to 1.7</button>
+    <button onclick="setPlaySpeed18()" type="button">Set playback speed to 1.8</button>
+    <button onclick="setPlaySpeed19()" type="button">Set playback speed to 1.9</button>
+    <button onclick="setPlaySpeed20()" type="button">Set playback speed to 2</button>
+    <button onclick="getPlaySpeed()" type="button">Return playback speed</button>
+  </div>
+</div>
+
+ 
+<div class="dropdown"> 
+  <button button class="dropbtn">Loop and other Misc Settings</button>
+  <div class="dropdown-content">
+  <button onclick="setCurTime1()" type="button">Set time position to 4 minutes 30 seconds</button>
+  <button onclick="setCurTime2()" type="button">Set time position to 8 minutes 12 seconds</button>
+  <button onclick="checkLoop()" type="button">Check loop status</button> 
+  <button onclick="enableLoop()" type="button">Enable loop</button>
+  <button onclick="disableLoop()" type="button">Disable loop</button>       
+  </div>
+</div>
+
+ 
+
+<audio id="myAudi01" controls>
+  <source src="999 Dancing Mad (Full).mp3" type="audio/mpeg">
+</audio>
+
+<style>
+body {
+  background: linear-gradient(rgb(38, 9, 44),rgb(56, 8, 58),rgb(0, 0, 0));
+  min-height: 100vh;
+  }
+  h1  {
+  font-size: x-large;
+  background: linear-gradient(rgb(39,253,245), rgb(168,246,248), rgb(215,255,254), rgb(249,141,201), rgb(247,101,184));
+  text-decoration: none;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  
+  }
+  a  {
+  font-size: x-large;
+  background: linear-gradient(rgb(39,253,245), rgb(168,246,248), rgb(215,255,254), rgb(249,141,201), rgb(247,101,184));
+  text-decoration: none;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  }
+  
+  .muzieknootjes {
+  display: block;
+  margin: auto;
+  position: relative;
+  width: 50%;
+  min-width: 300px;
+  height: 200px;
+  border: 0px solid #000;
+  }
+  
+  .noot-1,
+  .noot-2,
+  .noot-3,
+  .noot-4 {
+  position: absolute;
+  animation: notes 2s infinite linear;
+  font-size: 35px;
+  background: linear-gradient(rgb(39,253,245), rgb(168,246,248), rgb(215,255,254), rgb(249,141,201), rgb(247,101,184));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  opacity: 0;
+  }
+  
+  .noot-1 {
+  top: 60px;
+  left: 0;
+  animation-delay: 0.5s;
+  }
+  
+  .noot-2 {
+  top: 30px;
+  left: 30%;
+  animation-delay: 1s;
+  }
+  
+  .noot-3 {
+  top: 90px;
+  left: 60%;
+  animation-delay: 1.5s;
+  }
+  
+  .noot-4 {
+  top: 40px;
+  left: 90%;
+  animation-delay: 2s;
+  }
+  
+  @keyframes notes {
+  0% {
+  transform: scale(1) translate(0, 0);
+  opacity: 0;
+  }
+  50% {
+  opacity: 1;
+  transform: scale(1.5) translate(50%, -50%);
+  }
+  80% {
+  opacity: 0;
+  transform: scale(1.5) translate(100%, -100%);
+  }
+  100% {
+  transform: scale(1.5) translate(100%, -100%);
+  opacity: 0;
+  }
+  }
+  
+  
+  
+  
+  
+  @keyframes notes {
+  0% {
+  transform: scale(1) translate(0, 0);
+  opacity: 0;
+  }
+  50% {
+  opacity: 1;
+  transform: scale(1.5) translate(50%, -50%);
+  }
+  80% {
+  opacity: 0;
+  transform: scale(1.5) translate(100%, -100%);
+  }
+  100% {
+  transform: scale(1.5) translate(100%, -100%);
+  opacity: 0;
+  }
+  }
+  </style>
+  <br>
+  <br>
+  <br>
+      <div class="muzieknootjes">
+        <div class="muzieknootjes">
+            <div class="noot-1">
+            &#9835; &#9833;
+          </div>
+          <div class="noot-2">
+            &#9833;
+          </div>
+          <div class="noot-3">
+            &#9839; &#9834;
+          </div>
+          <div class="noot-4">
+            &#9834;
+          </div>
+          </div> 
+      </div>
+      </div>
+<a href="Musicbox2.html">Click here to listen to "Spell-breaker" from Professor Layton Vs Pheonix Wright</a>
+<br>
+<a href="Musicbox3.html">Click here to listen to "The Awakened One" from Slay The Spire</a>
+<br>
+<a href="Musicbox4.html">Click here to listen to "Boss Battle 2" from Space Megaforce</a>
+<br>
+<a href="Musicbox5.html">Click here to listen to "Keep Off The Flowers" from Dead Cells</a>
+<br>
+<a href="Musicbox6.html">Click here to listen to "Neon Mixtape Tour (Choose Your Seeds - No Jam)" from Plants Vs Zombies 2</a>
+<br>
+<a href="Musicbox7.html">Click here to listen to "Neon Mixtape Tour (Rock Jam) (Intro 2)" from Plants Vs Zombies 2</a>
+<br>
+
+<a href="Musicbox8.html">Click here to listen to "Zacharias Barnham The Sword of Labyrinthia" from Professor Layton Vs Pheonix Wright</a>
+<br>
+<a href="Musicbox9.html">Click here to listen to "Newton Belduke Twilight Memories.mp3" from Professor Layton Vs Pheonix Wright</a>
+<br>
+<a href="Musicbox10.html">Click here to listen to "Master Porky's Theme" from Mother 3</a>
+
+
+<script>
+  var audio = document.getElementById("myAudi01");
+  
+  function getVolume() { 
+    alert(audio.volume);
+  }
+  function getPlaySpeed() { 
+  alert(audio.playbackRate);
+} 
+
+function setPlaySpeed01() { 
+  audio.playbackRate = 0.1;
+}
+
+function setPlaySpeed02() { 
+  audio.playbackRate = 0.2;
+} 
+
+function setPlaySpeed03() { 
+  audio.playbackRate = 0.3;
+} 
+
+function setPlaySpeed04() { 
+  audio.playbackRate = 0.4;
+} 
+
+function setPlaySpeed05() { 
+  audio.playbackRate = 0.5;
+} 
+
+function setPlaySpeed06() { 
+  audio.playbackRate = 0.6;
+} 
+
+function setPlaySpeed07() { 
+  audio.playbackRate = 0.7;
+} 
+
+function setPlaySpeed08() { 
+  audio.playbackRate = 0.8;
+} 
+
+function setPlaySpeed09() { 
+  audio.playbackRate = 0.9;
+} 
+
+function setPlaySpeed10() { 
+  audio.playbackRate = 1;
+} 
+
+function setPlaySpeed11() { 
+  audio.playbackRate = 1.1;
+} 
+
+function setPlaySpeed12() { 
+  audio.playbackRate = 1.2;
+} 
+function setPlaySpeed13() { 
+  audio.playbackRate = 1.3;
+} 
+function setPlaySpeed14() { 
+  audio.playbackRate = 1.4;
+} 
+function setPlaySpeed15() { 
+  audio.playbackRate = 1.5;
+} 
+function setPlaySpeed16() { 
+  audio.playbackRate = 1.6;
+} 
+function setPlaySpeed17() { 
+  audio.playbackRate = 1.7;
+}
+function setPlaySpeed18() { 
+  audio.playbackRate = 1.8;
+} 
+function setPlaySpeed19() { 
+  audio.playbackRate = 1.9;
+}   
+function setPlaySpeed20() { 
+  audio.playbackRate = 2;
+}   
+function setPlaySpeed25() { 
+  audio.playbackRate = 2.5;
+}   
+function setPlaySpeed30() { 
+  audio.playbackRate = 3;
+}      
+    
+  function Mute() { 
+    audio.volume = 0.0;
+  } 
+  function setVolume10percent() { 
+    audio.volume = 0.1;
+  } 
+  function setVolume20percent() { 
+    audio.volume = 0.2;
+  } 
+  function setVolume30percent() { 
+    audio.volume = 0.3;
+  } 
+  function setVolume40percent() { 
+    audio.volume = 0.4;
+  } 
+  function setVolume50percent() { 
+    audio.volume = 0.5;
+  } 
+  function setVolume60percent() { 
+    audio.volume = 0.6;
+  } 
+  function setVolume70percent() { 
+    audio.volume = 0.7;
+  } 
+  function setVolume80percent() { 
+    audio.volume = 0.8;
+  }
+  function setVolume90percent() { 
+    audio.volume = 0.9;
+  }      
+  function setVolume100percent() { 
+    audio.volume = 1.0;
+  }
+ 
+function enableLoop() { 
+  audio.loop = true;
+  audio.load();
+  audio.play();
+} 
+
+function disableLoop() { 
+  audio.loop = false;
+  audio.load();
+  audio.play();
+} 
+function checkLoop() { 
+  alert(audio.loop);
+  audio.play();
+}  
+function setCurTime1() { 
+  audio.currentTime=270;
+    audio.play();
+}
+
+function setCurTime2() { 
+  audio.currentTime=492;
+    audio.play();
+}  
+
+
+</script>  
+
+</body>
+</html>
